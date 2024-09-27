@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState  } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // Ejemplo más elaborado de uso del hook use_state
+  const [items, setItems] = useState([]);
+const addItem = () => setItems([...items, { id: items.length, value: Math.random() * 100 }]);
+return (<div><button onClick={addItem}>Add Item</button><ul>{items.map(item => <li key={item.id}>{item.value}</li>)}</ul></div>);
+
 }
 
 export default App;
